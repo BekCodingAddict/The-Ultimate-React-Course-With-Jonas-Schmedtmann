@@ -194,3 +194,26 @@ console.log(`The book has ${pagesRange} pages!`);
 const getYear = (str) => str.split("-")[0];
 
 console.log(getYear(publicationDate));
+
+// Logical Operators
+console.log(true && "Some String");
+console.log(false && "Some String");
+console.log(hasMovieAdaptation && "This book has a movie");
+
+// falsy: 0,'',null,undefined
+console.log("Jonas" && "Some Sting");
+console.log(0 && "Some String");
+
+console.log(true || "Some string");
+console.log(false || "Some String");
+
+console.log(book.translations.spanish);
+const spanishTranslation = book.translations.spanish || "Not Translated!";
+spanishTranslation;
+
+console.log(book.reviews.librarything.reviewsCount);
+const countWrong = book.reviews.librarything.reviewsCount || "No Data";
+countWrong;
+
+const count = book.reviews.librarything.reviewsCount ?? "No Data";
+count;
