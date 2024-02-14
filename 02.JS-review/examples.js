@@ -41,3 +41,7 @@ const obj = getPhone(1);
 
 obj;
 const obj2 = ({ price, memory, model } = obj);
+
+const phones = phone;
+const models = phones.map((phone) => phone.model);
+console.log(models);

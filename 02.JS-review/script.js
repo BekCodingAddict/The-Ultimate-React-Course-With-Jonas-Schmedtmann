@@ -144,7 +144,9 @@ function getBook(id) {
 }
 
 // Destructuring
-const book = getBook(2);
+
+/*
+const book = getBook(1);
 
 // const title = book.title;
 // const author = book.author;
@@ -217,3 +219,36 @@ countWrong;
 
 const count = book.reviews.librarything.reviewsCount ?? "No Data";
 count;
+
+//optional chaining
+function getTotalreviewCount(book) {
+  const goodread = book.reviews.goodread?.reviewsCount ?? 0;
+  const librarything = book.reviews.librarything?.reviewsCount ?? 0;
+  return goodread + librarything;
+}
+
+console.log(getTotalreviewCount(book));
+*/
+
+function getTotalreviewCount(book) {
+  const goodread = book.reviews.goodread?.reviewsCount ?? 0;
+  const librarything = book.reviews.librarything?.reviewsCount ?? 0;
+  return goodread + librarything;
+}
+
+const books = getBooks();
+books;
+
+const x = [1, 2, 3, 4, 5].map((el) => el * 2);
+console.log(x);
+
+const titles = books.map((book) => book.title);
+titles;
+
+const essentialData = books.map((book) => ({
+  title: book.title,
+  author: book.author,
+  reviewsCount: getTotalreviewCount(book),
+}));
+
+essentialData;
