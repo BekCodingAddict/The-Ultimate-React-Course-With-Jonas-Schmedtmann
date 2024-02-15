@@ -45,3 +45,6 @@ const obj2 = ({ price, memory, model } = obj);
 const phones = phone;
 const models = phones.map((phone) => phone.model);
 console.log(models);
+
+const newPhone = phones.filter((phone) => phone.memory === "1Tb");
+newPhone;

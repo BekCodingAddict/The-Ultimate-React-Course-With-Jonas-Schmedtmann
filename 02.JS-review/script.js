@@ -230,25 +230,95 @@ function getTotalreviewCount(book) {
 console.log(getTotalreviewCount(book));
 */
 
-function getTotalreviewCount(book) {
-  const goodread = book.reviews.goodread?.reviewsCount ?? 0;
-  const librarything = book.reviews.librarything?.reviewsCount ?? 0;
-  return goodread + librarything;
+// function getTotalreviewCount(book) {
+//   const goodread = book.reviews.goodread?.reviewsCount ?? 0;
+//   const librarything = book.reviews.librarything?.reviewsCount ?? 0;
+//   return goodread + librarything;
+// }
+
+// const books = getBooks();
+// books;
+
+// const x = [1, 2, 3, 4, 5].map((el) => el * 2);
+// console.log(x);
+
+// const titles = books.map((book) => book.title);
+// titles;
+
+// const essentialData = books.map((book) => ({
+//   title: book.title,
+//   author: book.author,
+//   reviewsCount: getTotalreviewCount(book),
+// }));
+// essentialData;
+
+// // filtr method
+// const longBooks = books
+//   .filter((book) => book.pages > 500)
+//   .filter((book) => book.hasMovieAdaptation);
+// longBooks;
+
+// const adventureBooks = books
+//   .filter((books) => books.genres.includes("adventure"))
+//   .map((book) => book.title);
+
+// adventureBooks;
+
+// const pageAllBooks = books.reduce((acc, book) => acc + book.pages, 0);
+// pageAllBooks;
+
+// //sort method
+// const arr = [2, 7, 3, 8, 9];
+// const sorted = arr.sort((a, b) => a - b);
+// sorted;
+
+// const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
+// sortedByPages;
+
+// // Add book object to array
+// const newBook = {
+//   id: 6,
+//   title: "Harry Potter and the Chamber of Secrets",
+//   author: "J.K. Rowling",
+// };
+
+// const booksAfterAdd = [...books, newBook];
+// booksAfterAdd;
+
+// //delete book from array
+// const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
+// booksAfterDelete;
+
+// // Update book object in the array
+// const booksAfterUpdate = booksAfterDelete.map((book) =>
+//   book.id === 1 ? { ...book, pages: 1210 } : book
+// );
+// booksAfterUpdate;
+
+// fetch("https://jsonplaceholder.typicode.com/todos")
+//   .then((res) => res.json())
+//   .then((data) => console.log(data));
+
+// console.log("Jonas");
+
+async function getTodos() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+  const data = await res.json();
+  console.log(data.slip.advice.filter((ad) => ad.id > 100));
+  return data;
 }
 
-const books = getBooks();
-books;
+// const todos = getTodos();
+// console.log(todos);
 
-const x = [1, 2, 3, 4, 5].map((el) => el * 2);
-console.log(x);
+// console.log("Jonas");
 
-const titles = books.map((book) => book.title);
-titles;
+async function getAdvide() {
+  const res = await fetch("https://api.adviceslip.com/advice");
+  const data = await res.json();
+  console.log(data);
+  return data;
+}
 
-const essentialData = books.map((book) => ({
-  title: book.title,
-  author: book.author,
-  reviewsCount: getTotalreviewCount(book),
-}));
-
-essentialData;
+const advice = getAdvide();
+console.log(advice);
