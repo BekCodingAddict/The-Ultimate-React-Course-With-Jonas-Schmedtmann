@@ -1,73 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="../src/style.css" />
-    <title>Vanilla JS steps</title>
-  </head>
-  <body>
-    <div class="steps">
-      <div class="numbers">
-        <div class="step-1">1</div>
-        <div class="step-2">2</div>
-        <div class="step-3">3</div>
-      </div>
 
-      <p class="message"></p>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- <link rel="stylesheet" type="text/css" href="../src/index.css" /> -->
+  <title>Vanilla JS steps</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-      <div class="buttons">
-        <button class="previous">Previous</button>
-        <button class="next">Next</button>
-      </div>
+    body {
+      font-family: sans-serif;
+      color: #333;
+    }
+
+    .steps {
+      width: 600px;
+      background-color: #f7f7f7;
+      border-radius: 7px;
+      padding: 25px 100px;
+      margin: 100px auto;
+    }
+
+    .card {
+      width: 600px;
+      background: linear-gradient(135deg, orange 60%, cyan);
+      border-radius: 7px;
+      padding: 25px 100px;
+      margin: 100px auto;
+    }
+
+    .numbers {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .numbers>div {
+      height: 40px;
+      aspect-ratio: 1;
+      background-color: #e7e7e7;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .numbers .active {
+      background-color: #7950f2;
+      color: #fff;
+    }
+
+    .message {
+      text-align: center;
+      font-size: 20px;
+      margin: 40px 0;
+      font-weight: bold;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .buttons button {
+      border: none;
+      cursor: pointer;
+      padding: 10px 15px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: bold;
+
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .imgCard {
+      display: flex;
+      justify-content: center;
+      margin: 40px auto;
+      width: 400px;
+    }
+
+    .buttons button span {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    h3 {
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    .close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 40px;
+      color: inherit;
+    }
+
+    .close:hover {
+      color: #7950f2;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="steps">
+    <div class="numbers">
+      <div class="step-1">1</div>
+      <div class="step-2">2</div>
+      <div class="step-3">3</div>
     </div>
 
-    <script>
-      const messages = [
-        'Learn React ⚛️',
-        'Apply for jobs 💼',
-        'Invest your new income 🤑',
-      ];
+    <p class="message"></p>
 
-      // Selecting DOM elements
-      const step1 = document.querySelector('.step-1');
-      const step2 = document.querySelector('.step-2');
-      const step3 = document.querySelector('.step-3');
-      const message = document.querySelector('.message');
-      const btnPrevious = document.querySelector('.previous');
-      const btnNext = document.querySelector('.next');
+    <div class="buttons">
+      <button class="previous">Previous</button>
+      <button class="next">Next</button>
+    </div>
+  </div>
 
-      // "State"
-      let step = 1;
+  <script>
+    const messages = [
+      'Chet El Davlatlarida O"qishni istaysizmi? 🤗',
+      'Yaxshi daromad olib sayoxatlarnichi? 🤑😱',
+      'Instagram korib o"trnasdan Ingliz tilizni o"qing! 🤣',
+    ];
 
-      // Manually updating the DOM: changing text content and adding/removing classes (imperative approach)
-      const updateUIValues = function () {
-        message.textContent = `Step ${step}: ${messages[step - 1]}`;
+    // Selecting DOM elements
+    const step1 = document.querySelector('.step-1');
+    const step2 = document.querySelector('.step-2');
+    const step3 = document.querySelector('.step-3');
+    const message = document.querySelector('.message');
+    const btnPrevious = document.querySelector('.previous');
+    const btnNext = document.querySelector('.next');
 
-        if (step >= 1) step1.classList.add('active');
-        else step1.classList.remove('active');
+    // "State"
+    let step = 1;
 
-        if (step >= 2) step2.classList.add('active');
-        else step2.classList.remove('active');
+    // Manually updating the DOM: changing text content and adding/removing classes (imperative approach)
+    const updateUIValues = function () {
+      message.textContent = `Step ${step}: ${messages[step - 1]}`;
 
-        if (step >= 3) step3.classList.add('active');
-        else step3.classList.remove('active');
-      };
+      if (step >= 1) step1.classList.add('active');
+      else step1.classList.remove('active');
 
-      // Initial setup
+      if (step >= 2) step2.classList.add('active');
+      else step2.classList.remove('active');
+
+      if (step >= 3) step3.classList.add('active');
+      else step3.classList.remove('active');
+    };
+
+    // Initial setup
+    updateUIValues();
+
+    // Manually attaching event listeners
+    btnPrevious.addEventListener('click', function () {
+      if (step > 1) step -= 1;
       updateUIValues();
+    });
 
-      // Manually attaching event listeners
-      btnPrevious.addEventListener('click', function () {
-        if (step > 1) step -= 1;
-        updateUIValues();
-      });
+    btnNext.addEventListener('click', function () {
+      if (step < 3) step += 1;
+      updateUIValues();
+    });
+  </script>
+</body>
 
-      btnNext.addEventListener('click', function () {
-        if (step < 3) step += 1;
-        updateUIValues();
-      });
-    </script>
-  </body>
 </html>
