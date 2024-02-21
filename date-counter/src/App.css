@@ -1,0 +1,45 @@
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App {
+  height: 100vh;
+  display: flex;
+  font-family: sans-serif;
+  text-align: center;
+  background: linear-gradient(
+    to right,
+    #f7f9e2,
+    rgb(199, 243, 239),
+    rgb(186, 240, 186)
+  );
+  margin: 0;
+  padding: 0;
+}
+
+.counter {
+  margin: 40px auto;
+  display: inline;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter .buttons {
+  padding: 10px;
+  display: flex;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
