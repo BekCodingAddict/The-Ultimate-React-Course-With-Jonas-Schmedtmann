@@ -10,11 +10,14 @@ body {
 }
 
 .product-list {
-  background-color: aqua;
+  background-color: whitesmoke;
+  min-width: 375px;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+  padding: 1rem;
 }
 
 code {
@@ -48,4 +51,61 @@ form {
   bottom: 0;
   right: 0;
   margin-top: 1rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 200px;
+  background-color: #fff;
+  color: #333333d7;
+  margin: 0.3rem 2rem;
+  flex-wrap: wrap;
+}
+
+.card .product-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem;
+  height: inherit;
+}
+
+.card .product-img img {
+  border-radius: 5px;
+  width: 180px;
+  height: auto;
+}
+
+.card .product-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem 2rem;
+}
+
+.card .product-data p b {
+  white-space: nowrap;
+}
+
+.card .product-pricing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.card .product-pricing p {
+  font-weight: bold;
+  font-size: 1.75rem;
+}
+
+@media screen and (max-width<925px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+  }
 }

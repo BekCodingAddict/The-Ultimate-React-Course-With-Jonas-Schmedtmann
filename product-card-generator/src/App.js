@@ -11,14 +11,18 @@ function App() {
   };
 
   const handleAddProduct = (product) => {
-    setProducts((products) => products.push(product));
-    console.log(setProducts);
+    setProducts((prevProduct) => [...prevProduct, product]);
+    console.log(products);
   };
 
   return (
     <>
       <Header onShowForm={handleClickShow} />
-      {isShow ? <Form onAddProduct={handleAddProduct} /> : <ProductList />}
+      {isShow ? (
+        <Form onAddProduct={handleAddProduct} />
+      ) : (
+        <ProductList products={products} />
+      )}
     </>
   );
 }

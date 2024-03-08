@@ -4,6 +4,7 @@ function Form({ onAddProduct }) {
   const [product, setProduct] = useState({
     id: Math.floor(Math.random() * 1000),
     productName: "",
+    description: "",
     price: "",
     brand: "",
     category: "",
@@ -23,6 +24,14 @@ function Form({ onAddProduct }) {
     };
     console.log(newProduct);
     onAddProduct(newProduct);
+    setProduct({
+      id: Math.floor(Math.random() * 1000),
+      productName: "",
+      price: "",
+      brand: "",
+      category: "",
+      images: "",
+    });
   };
 
   return (
