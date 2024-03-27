@@ -37,10 +37,131 @@
   }
 }
 
+/* Movie */
+
+/* movie */
+.movie {
+  height: 100vh;
+  background: url(https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/B6981BDF339764E6C56626C9DE0820CEF297EAF069F62F244E0F50061219F069/scale?width=1200&amp;aspectRatio=1.78&amp;format=webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section .content {
+  position: absolute;
+  left: 2px;
+  top: 625px;
+}
+
+section .content .details span {
+  position: relative;
+  top: -245px;
+  left: 108px;
+  color: ghostwhite;
+  margin: 12px;
+  font-weight: 400;
+}
+
+.details span:last-child {
+  border: 1px solid rgba(182, 181, 181);
+  padding-top: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 2px;
+  border-radius: 2px;
+  font-size: 12px;
+}
+
+.buttons {
+  position: relative;
+  top: -205px;
+  left: 108px;
+  color: white;
+  margin: 10px;
+  font-weight: 500;
+}
+
+.buttons .btn1 {
+  position: relative;
+  left: -10px;
+  background: red;
+  padding: 14px 26px;
+  border-radius: 2px;
+  transition: 0.5s;
+}
+
+.buttons .btn2 {
+  background: #ffffff2e;
+  padding: 14px 26px;
+  border-radius: 2px;
+  transition: 0.5s;
+}
+
+.buttons .btn1:hover {
+  opacity: 0.8;
+  outline: 0.2rem solid white;
+  cursor: pointer;
+}
+
+.buttons .btn2:hover {
+  opacity: 0.8;
+  outline: 0.2rem solid white;
+  cursor: pointer;
+  color: red;
+  background-color: white;
+  font-weight: 600;
+}
+
+.btn1 a {
+  text-decoration: none;
+  color: white;
+}
+
 /* Header */
-.Header {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
+.logo {
+  font-size: 1.4rem;
+}
+
+li a {
+  color: white;
+  font-weight: bold;
+}
+li a:hover {
+  background: linear-gradient(45deg, red, rgba(245, 14, 122));
+  border-radius: 0.2rem;
+}
+.search-btn {
+  width: 160px;
+  outline: 0.1rem solid rgba(255, 255, 255, 0.348);
+}
+.search-btn:hover {
+  background-color: green;
+  color: white;
+  outline: 0.2rem solid rgba(255, 255, 255, 0.348);
+}
+
+.nav-toggle-btn {
+  color: white;
+  outline: 0.2 solid white;
+}
+
+.movie-Title {
+  position: relative;
+  font-size: 8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.656);
+  left: 8rem;
+  top: 8rem;
 }
