@@ -1,10 +1,22 @@
+import { useState } from "react";
 import "./App.css";
-import Movie from "./Movie";
+import Header from "./Header";
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+  function handleClick(ev) {
+    setIsOpen((cur) => !cur);
+  }
   return (
     <div>
-      <Movie />
+      <Header />
+      {isOpen ? (
+        <SignUp onOpen={handleClick} />
+      ) : (
+        <SignIn onOpen={handleClick} />
+      )}
     </div>
   );
 }
