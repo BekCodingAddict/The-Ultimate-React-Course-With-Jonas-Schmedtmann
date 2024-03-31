@@ -39,7 +39,10 @@ function Tabbed({ content }) {
       </div>
 
       {activeTab <= 2 ? (
-        <TabContent item={content.at(activeTab)} key={1 + 1} />
+        <TabContent
+          item={content.at(activeTab)}
+          key={content.ad(activeTab).summary}
+        />
       ) : (
         <DifferentContent />
       )}
