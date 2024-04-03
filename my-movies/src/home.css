@@ -1,0 +1,114 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.977),
+    rgba(0, 0, 0, 0.918),
+    rgb(74, 74, 74)
+  );
+  flex-direction: column;
+  height: 100vh;
+  min-width: 100vw;
+  padding-top: 2rem;
+  margin: 0;
+  box-sizing: border-box;
+  gap: 1rem;
+}
+
+.view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 40%;
+  padding: 1rem auto;
+  margin: 1rem auto;
+  flex-wrap: wrap;
+  background: url("https://bgr.com/wp-content/uploads/2019/03/avengers-endgame-sign-2.jpg?quality=82&strip=all&w=1020&h=574&crop=1");
+  position: relative;
+  background-size: cover;
+  background-position: center top;
+  border-radius: 5px;
+}
+
+.movies-grid {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  padding: 1rem auto;
+}
+
+.box {
+  border: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.movies-grid .card {
+  width: 120px;
+  height: 180px;
+  background-color: white;
+  outline: 2px solid rgb(17, 215, 255);
+  /* background: url("https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg"); */
+  background-size: cover;
+  background-position: center center;
+}
+
+.box .movie-info {
+  display: none;
+  text-align: center;
+  color: white;
+  width: 50%;
+  height: auto;
+  padding: 0;
+}
+
+.box .movie-info h6 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.5rem;
+}
+
+.box .movie-info p {
+  font-size: 0.8rem;
+  color: rgb(170, 170, 170);
+  padding: 0;
+  margin: 0;
+}
+
+.movies-grid .card p {
+  position: relative;
+  bottom: 0;
+  color: white;
+  font-weight: bold;
+  left: 20px;
+  bottom: -140px;
+}
+
+@media screen and (max-width: 430px) {
+  .container {
+    overflow: scroll;
+  }
+
+  .movies-grid {
+    flex-direction: row;
+  }
+  .box {
+    width: 100%;
+  }
+  .box .movie-info {
+    display: block;
+  }
+}

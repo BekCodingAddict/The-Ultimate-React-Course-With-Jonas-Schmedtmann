@@ -1,4 +1,18 @@
-function Header() {
+import { useState } from "react";
+const axios = require("axios");
+
+function Header({ setMovies }) {
+  const [movie, setMovie] = useState("");
+  const KEY = "2a5d4900";
+
+  function handleSearch(e) {
+    e.preventDefault();
+    fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${movie}`)
+      .then((res) => res.json())
+      .then((data) => setMovies(data.Search));
+    setMovie("");
+  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-success ">
       <div className="container-fluid ">
@@ -9,7 +23,7 @@ function Header() {
             width="30"
             height="22"
             fill="currentColor"
-            class="bi bi-film"
+            className="bi bi-film"
             viewBox="0 0 16 16"
           >
             <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm4 0v6h8V1zm8 8H4v6h8zM1 1v2h2V1zm2 3H1v2h2zM1 7v2h2V7zm2 3H1v2h2zm-2 3v2h2v-2zM15 1h-2v2h2zm-2 3v2h2V4zm2 3h-2v2h2zm-2 3v2h2v-2zm2 3h-2v2h2z" />
@@ -114,12 +128,14 @@ function Header() {
               </a>
             </li> */}
           </ul>
-          <form className="d-flex">
+          <form className="d-flex" onSubmit={handleSearch}>
             <input
               className="form-control me-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
+              value={movie}
+              onChange={(e) => setMovie(e.target.value)}
             />
             <button className="btn btn-outline-success" type="submit">
               Search

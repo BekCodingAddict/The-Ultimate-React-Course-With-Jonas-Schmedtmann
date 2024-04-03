@@ -1,21 +1,69 @@
-function SignUp({ onOpen }) {
+import { useState } from "react";
+
+function SignUp({ onOpen, setUsers }) {
+  const [user, setUser] = useState({
+    userName: "",
+    userPassword: "",
+    userEmail: "",
+    userId: 0,
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const userId = crypto.randomUUID();
+    const newUser = {
+      userId: userId,
+      userName: user.userName,
+      userPassword: user.userPassword,
+      userEmail: user.userEmail,
+    };
+
+    setUsers((users) => [...users, newUser]);
+    setUser({
+      userName: "",
+      userPassword: "",
+      userEmail: "",
+      userId: 0,
+    });
+  };
   return (
     <div className="body">
       <div className="main">
         <div className="wrapper">
           <div className="form-wrapper sing-up">
-            <form action="">
+            <form action="" onSubmit={handleSubmit}>
               <h2>Sign Up</h2>
               <div className="input-group">
-                <input type="text" required></input>
+                <input
+                  type="text"
+                  required
+                  value={user.userName}
+                  onChange={(e) =>
+                    setUser({ ...user, userName: e.target.value })
+                  }
+                ></input>
                 <label htmlFor="">Username</label>
               </div>
               <div className="input-group">
-                <input type="email" required></input>
+                <input
+                  type="email"
+                  required
+                  value={user.userEmail}
+                  onChange={(e) =>
+                    setUser({ ...user, userEmail: e.target.value })
+                  }
+                ></input>
                 <label htmlFor="">Email</label>
               </div>
               <div className="input-group">
-                <input type="password" required></input>
+                <input
+                  type="password"
+                  required
+                  value={user.userPassword}
+                  onChange={(e) =>
+                    setUser({ ...user, userPassword: e.target.value })
+                  }
+                ></input>
                 <label htmlFor="">Password</label>
               </div>
               <div className="remember">
