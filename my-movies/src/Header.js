@@ -7,7 +7,7 @@ function Header({ setMovies }) {
 
   function handleSearch(e) {
     e.preventDefault();
-    fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${movie}`)
+    fetch(`https://www.omdbapi.com/?apikey=${KEY}&s=${movie}`)
       .then((res) => res.json())
       .then((data) => setMovies(data.Search));
     setMovie("");
