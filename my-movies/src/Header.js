@@ -1,16 +1,39 @@
 import { useState } from "react";
-const axios = require("axios");
 
-function Header({ setMovies }) {
+function Header({ setMovies, setIsLoading, setError }) {
   const [movie, setMovie] = useState("");
+
   const KEY = "2a5d4900";
+
+  async function fetchingMovie() {
+    try {
+      setIsLoading(true);
+      const res = await fetch(
+        `https://www.omdbapi.com/?apikey=${KEY}&s=${movie}`
+      );
+      if (!res.ok) throw new Error("Something went wrong with fetching data!");
+      const data = await res.json();
+      if (data.Response === "False") throw new Error("No Movie Found!");
+      console.log(data.Search);
+      if (data) {
+        setMovies(data.Search);
+        setError("");
+      }
+    } catch (err) {
+      setError(err.message);
+      console.log(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   function handleSearch(e) {
     e.preventDefault();
-    fetch(`https://www.omdbapi.com/?apikey=${KEY}&s=${movie}`)
-      .then((res) => res.json())
-      .then((data) => setMovies(data.Search));
-    setMovie("");
+    fetchingMovie();
+    // fetch(`https://www.omdbapi.com/?apikey=${KEY}&s=${movie}`)
+    //   .then((res) => res.json())
+    //   .then((data) => setMovies(data.Search));
+    // setMovie("");
   }
 
   return (
@@ -133,7 +156,6 @@ function Header({ setMovies }) {
               className="form-control me-2"
               type="search"
               placeholder="Search"
-              aria-label="Search"
               value={movie}
               onChange={(e) => setMovie(e.target.value)}
             />

@@ -1,4 +1,3 @@
-
 .App {
   text-align: center;
 }
@@ -21,6 +20,48 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.loader {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: inherit;
+}
+
+.loader svg {
+  position: absolute;
+  top: 50vh;
+  animation-duration: 10s;
+  animation-delay: 0.01s;
+  animation: anim 10s ease infinite;
+  color: red;
+}
+
+.errorMassage {
+  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.errorMassage span {
+  width: 400px;
+  position: absolute;
+  top: 50vh;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  flex-wrap: wrap;
+  opacity: 1;
+}
+
+@keyframes anim {
+  0% {
+    transform: rotate(-3000deg);
+  }
 }
 
 @keyframes App-logo-spin {

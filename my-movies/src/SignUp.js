@@ -42,7 +42,7 @@ function SignUp({ onOpen, setUsers }) {
                     setUser({ ...user, userName: e.target.value })
                   }
                 ></input>
-                <label htmlFor="">Username</label>
+                <label>Username</label>
               </div>
               <div className="input-group">
                 <input
@@ -53,7 +53,7 @@ function SignUp({ onOpen, setUsers }) {
                     setUser({ ...user, userEmail: e.target.value })
                   }
                 ></input>
-                <label htmlFor="">Email</label>
+                <label>Email</label>
               </div>
               <div className="input-group">
                 <input
@@ -64,11 +64,11 @@ function SignUp({ onOpen, setUsers }) {
                     setUser({ ...user, userPassword: e.target.value })
                   }
                 ></input>
-                <label htmlFor="">Password</label>
+                <label>Password</label>
               </div>
               <div className="remember">
                 <input type="checkbox"></input>
-                <label htmlFor="">I agree to the terms & conditions</label>
+                <label>I agree to the terms & conditions</label>
               </div>
               <button type="submit">Sign Up</button>
               <div className="singUp-link">
