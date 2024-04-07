@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import StarRating from "./StarRating";
 
 const tempMovieData = [
   {
@@ -78,12 +79,13 @@ export default function App() {
   // console.log("During Render");
 
   function handleSelectMovie(id) {
-    setSelectedId((selectedId) => (id === selectedId ? null : id));
+    setSelectedId((selectedId) => (selectedId === id ? null : id));
   }
 
   function handleCloseMovie() {
     setSelectedId(null);
   }
+
   useEffect(
     function () {
       async function fetchMovies() {
@@ -160,7 +162,7 @@ export default function App() {
 }
 
 function Loader() {
-  return <p className="loader">Loading...</p>;
+  return <p className="loader">Loader...</p>;
 }
 
 function ErrorMassage({ message }) {
@@ -288,12 +290,78 @@ function WatchedMovieList({ watched }) {
 }
 
 function MovieDetails({ selectedId, onCloseMovie }) {
+  const [movie, setMovie] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const {
+    Title: title,
+    Year: year,
+    Poster: poster,
+    Runtime: runtime,
+    imdbRating,
+    Plot: plot,
+    Released: released,
+    Actors: actors,
+    Director: director,
+    Genre: genre,
+  } = movie;
+
+  console.log(title, year);
+  useEffect(
+    function () {
+      async function getMovieDetails() {
+        setIsLoading(true);
+        const res = await fetch(
+          `http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
+        );
+        const data = await res.json();
+        console.log(data);
+        setMovie(data);
+      }
+      getMovieDetails();
+      setIsLoading(false);
+      console.log(imdbRating);
+    },
+    [selectedId]
+  );
   return (
     <div className="details">
-      <button className="btn-back" onClick={onCloseMovie}>
-        &larr;
-      </button>
-      {selectedId}
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <header>
+            <button className="btn-back" onClick={onCloseMovie}>
+              &larr;
+            </button>
+            <img src={poster} alt={title} />
+            <div className="details-overview">
+              <h2>{title}</h2>
+              <p>
+                {released} &bull; {runtime}
+              </p>
+              <p>{genre}</p>
+              <p>
+                <span>⭐️</span>
+                {imdbRating} Rating
+              </p>
+            </div>
+          </header>
+          <section>
+            <div className="rating">
+              <StarRating
+                maxRating={10}
+                size={24}
+                defaultRating={Math.floor(imdbRating)}
+              />
+            </div>
+            <p>
+              <em>{plot}</em>
+              <p>Starring {actors}</p>
+              <p>Directed by {director}</p>
+            </p>
+          </section>
+        </>
+      )}
     </div>
   );
 }
