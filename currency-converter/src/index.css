@@ -1,0 +1,157 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(
+    to right,
+    rgba(245, 222, 179, 0.454),
+    rgba(245, 222, 179, 0.28)
+  );
+  gap: 1rem;
+}
+
+.CC-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  color: #333;
+  min-height: 600px;
+  width: 40%;
+  background-color: whitesmoke;
+  border-radius: 0.2rem;
+  padding: 1rem;
+}
+
+.CC-container .header {
+  width: 100%;
+}
+
+.CC-container .header p {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.CC-container .convertor {
+  width: 100%;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.CC-container .convertor .box {
+  width: 100%;
+  background-color: white;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.CC-container .convertor .box input {
+  width: 20%;
+  padding: 0.4rem;
+  border-radius: 0.2rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.445);
+}
+
+.CC-container .convertor .box select {
+  width: 45%;
+  padding: 0.4rem;
+  border-radius: 0.2rem;
+}
+
+.CC-container .convertor .box input:hover,
+.CC-container .convertor .box select:hover {
+  cursor: pointer;
+  outline: 0.1rem solid rgba(0, 81, 255, 0.614);
+}
+
+.CC-container .btn-convert {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  position: relative;
+  left: 40px;
+  background-color: whitesmoke;
+}
+
+.CC-container .btn-convert button {
+  width: 160px;
+  padding: 0.4rem;
+  text-transform: uppercase;
+  background-color: rgba(0, 26, 255, 0.837);
+  color: white;
+  font-weight: bold;
+  border-radius: 0.2rem;
+  border: 0.1rem solid rgba(128, 128, 128, 0.603);
+}
+
+.CC-container .btn-convert button:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  border: 0.1rem solid rgba(0, 60, 255, 0.691);
+}
+
+.CC-container .spinner {
+  width: 100%;
+  background-color: whitesmoke;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.CC-container .spinner span {
+  width: 40px;
+  height: 40px;
+  background-color: whitesmoke;
+  border: 0.1rem solid rgba(128, 128, 128, 0.608);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.CC-container .spinner span .animate {
+  animation: anime 10s ease;
+}
+
+@keyframes anime {
+  0% {
+    transform: rotate(-1000deg);
+  }
+}
+.CR-container {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  min-height: 600px;
+  width: 40%;
+  background-color: whitesmoke;
+  border-radius: 0.2rem;
+}
