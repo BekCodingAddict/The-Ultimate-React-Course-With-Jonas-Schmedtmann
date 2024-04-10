@@ -7,12 +7,16 @@ const average = (arr) =>
 const KEY = "2a5d4900";
 
 export default function App() {
-  const [watched, setWatched] = useState([]);
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
+  // const [watched, setWatched] = useState([]);
+  const [watched, setWatched] = useState(function () {
+    const stroedValue = localStorage.getItem("watched");
+    return JSON.parse(stroedValue);
+  });
 
   function handleSelectMovie(id) {
     setSelectedId((selectedId) => (selectedId === id ? null : id));
@@ -24,11 +28,19 @@ export default function App() {
 
   const handleAddWatched = (movie) => {
     setWatched((watched) => [...watched, movie]);
+    // localStorage.setItem("watched", JSON.stringify([...watched], movie));
   };
 
   function handleDeleteWatched(id) {
     setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
   }
+
+  useEffect(
+    function () {
+      localStorage.setItem("watched", JSON.stringify(watched));
+    },
+    [watched]
+  );
 
   useEffect(
     function () {
