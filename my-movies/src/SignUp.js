@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function SignUp({ onOpen, setUsers }) {
+function SignUp({ onOpen, users, setUsers }) {
   const [user, setUser] = useState({
     userName: "",
     userPassword: "",
@@ -18,7 +18,11 @@ function SignUp({ onOpen, setUsers }) {
       userEmail: user.userEmail,
     };
 
-    setUsers((users) => [...users, newUser]);
+    setUsers((currusers) => [...currusers, newUser]);
+    console.log(newUser);
+    console.log(users);
+
+    localStorage.setItem("users", JSON.stringify([...users, newUser]));
     setUser({
       userName: "",
       userPassword: "",

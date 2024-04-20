@@ -8,13 +8,12 @@ import Home from "./Home";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [movies, setMovies] = useState([]);
-  const [users, setUsers] = useState([
-    { userName: "asaa", userEmail: "sndjsndj@skndj.com" },
-  ]);
+  const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const [userExist, setUserExist] = useState(false);
 
-  function handleClick(ev) {
+  function handleClick() {
     setIsOpen((cur) => !cur);
   }
 
@@ -25,14 +24,19 @@ function App() {
         setIsLoading={setIsLoading}
         setError={setError}
       />
-
-      {users.length !== 0 ? (
+      {userExist ? (
         <Home movies={movies} error={error} isLoading={isLoading} />
-      ) : isOpen ? (
-        <SignUp onOpen={handleClick} setUsers={setUsers} />
+      ) : !isOpen ? (
+        <SignIn onOpen={handleClick} onUserExist={setUserExist} />
       ) : (
-        <SignIn onOpen={handleClick} />
+        <SignUp onOpen={handleClick} setUsers={setUsers} users={users} />
       )}
+      {/* {userExist ? (
+        <Home movies={movies} error={error} isLoading={isLoading} />
+      ) : !isOpen ? (
+        <SignIn onOpen={handleClick} onUserExist={setUserExist} />
+      ) : (
+        <SignUp onOpen={handleClick} setUsers={setUsers} users={users} /> */}
     </div>
   );
 }
