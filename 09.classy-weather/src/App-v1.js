@@ -82,8 +82,6 @@ class App extends React.Component {
     }
   };
 
-  setLocation = (e) => this.setState({ location: e.target.value });
-
   render() {
     return (
       <div className="app">
