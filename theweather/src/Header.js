@@ -109,11 +109,13 @@ class Header extends React.Component {
           value={this.state.location}
           onChange={this.setLocation}
         />
-        <div className="results">
-          {this.state.geoLocations.map((currLoc) => (
-            <p>{currLoc.name}</p>
-          ))}
-        </div>
+        {this.state.geoLocations.length !== 0 && (
+          <div className="results">
+            {this.state.geoLocations.map((currLoc) => (
+              <p>{currLoc.name}</p>
+            ))}
+          </div>
+        )}
       </header>
     );
   }

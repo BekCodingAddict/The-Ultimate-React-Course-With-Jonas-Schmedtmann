@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Header from "./Header";
 import Location from "./Locations";
+import WeatherPage from "./WeatherPage";
 
 class App extends React.Component {
   constructor(props) {
@@ -25,6 +26,7 @@ class App extends React.Component {
         <Location isFocus={this.state.isFocus} />
         <Location isFocus={this.state.isFocus} />
       </div>
+      // <WeatherPage />
     );
   }
 }
