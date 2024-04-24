@@ -1,0 +1,40 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.home {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(135deg, lime, yellow, orange);
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.about {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(135deg, lime, yellow, orange);
+  font-size: 2rem;
+}
+
+.books {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(135deg, lime, yellow, orange);
+  font-size: 2rem;
+}
