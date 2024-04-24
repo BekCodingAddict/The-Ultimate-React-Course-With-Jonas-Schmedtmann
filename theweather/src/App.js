@@ -12,6 +12,7 @@ class App extends React.Component {
       isFocus: false,
       weather: {},
       location: "",
+      weatherList: [],
     };
   }
 
@@ -24,12 +25,15 @@ class App extends React.Component {
 
   setWeather = (obj) => {
     this.setState({ weather: obj });
-    console.log(this.state.weather);
-    console.log("App Weather");
   };
 
   setLocation = (str) => {
     this.setState({ location: str });
+  };
+
+  addWeatherList = (obj) => {
+    this.setState({ weatherList: [...this.state.weatherList, obj] });
+    console.log(this.state.weatherList);
   };
 
   render() {
@@ -46,8 +50,14 @@ class App extends React.Component {
                 setWeather={this.setWeather}
                 setLocation={this.setLocation}
               />
-              <Location isFocus={this.state.isFocus} />
-              <Location isFocus={this.state.isFocus} />
+              {this.state.weatherList.map((currWeather, i) => (
+                <Location
+                  key={currWeather.time[i]}
+                  displayLocation={this.state.location}
+                  currWeather={currWeather}
+                  isFocus={this.state.isFocus}
+                />
+              ))}
             </div>
           }
         />
@@ -57,6 +67,7 @@ class App extends React.Component {
             <WeatherPage
               weatherData={this.state.weather}
               displayLocation={this.state.location}
+              addWeatherList={this.addWeatherList}
             />
           }
         />

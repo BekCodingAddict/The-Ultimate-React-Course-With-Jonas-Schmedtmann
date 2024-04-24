@@ -74,7 +74,6 @@ class Header extends React.Component {
     }
   }
 
-  static getDerivedStateFromProps(props, state) {}
   render() {
     return (
       <header>
@@ -90,7 +89,7 @@ class Header extends React.Component {
         {this.state.geoLocations.length !== 0 && (
           <div className="results">
             {this.state.geoLocations.map((currLoc) => (
-              <p>
+              <p key={currLoc.id}>
                 <Link className="link" to="weather-page">
                   {currLoc.name}
                 </Link>
@@ -104,3 +103,5 @@ class Header extends React.Component {
 }
 
 export default Header;
+
+// 37.7431002 127.0456232

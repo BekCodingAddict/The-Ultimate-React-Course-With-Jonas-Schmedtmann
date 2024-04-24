@@ -1,6 +1,6 @@
 import React from "react";
 
-function getWeatherIcon(wmoCode) {
+export function getWeatherIcon(wmoCode) {
   const icons = new Map([
     [[0], "☀️"],
     [[1], "🌤"],
@@ -19,7 +19,7 @@ function getWeatherIcon(wmoCode) {
   return icons.get(arr);
 }
 
-function getWeatherCondition(wmoCode) {
+export function getWeatherCondition(wmoCode) {
   const conditions = new Map([
     [[0], "Sunny"],
     [[1], "Partly Cloudy"],
@@ -45,6 +45,16 @@ function formatDay(dateStr) {
 }
 
 class WeatherPage extends React.Component {
+  handleAddWeatherList = () => {
+    const newData = {
+      temperature_2m_max: this.props.weatherData.temperature_2m_max,
+      temperature_2m_min: this.props.weatherData.temperature_2m_min,
+      time: this.props.weatherData.time,
+      weathercode: this.props.weatherData.weathercode,
+      currLocation: this.props.displayLocation,
+    };
+    this.props.addWeatherList(newData);
+  };
   render() {
     const {
       temperature_2m_max: max,
@@ -56,7 +66,7 @@ class WeatherPage extends React.Component {
     return (
       <div className="weather-wrapper">
         <div className="btn">
-          <button>Add +</button>
+          <button onClick={this.handleAddWeatherList}>Add +</button>
         </div>
         <div className="location">
           <h1>{this.props.displayLocation}</h1>
