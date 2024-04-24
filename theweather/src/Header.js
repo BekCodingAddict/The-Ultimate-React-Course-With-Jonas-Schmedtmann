@@ -1,28 +1,5 @@
 import React from "react";
-
-function getWeatherIcon(wmoCode) {
-  const icons = new Map([
-    [[0], "☀️"],
-    [[1], "🌤"],
-    [[2], "⛅️"],
-    [[3], "☁️"],
-    [[45, 48], "🌫"],
-    [[51, 56, 61, 66, 80], "🌦"],
-    [[53, 55, 63, 65, 57, 67, 81, 82], "🌧"],
-    [[71, 73, 75, 77, 85, 86], "🌨"],
-    [[95], "🌩"],
-    [[96, 99], "⛈"],
-  ]);
-  const arr = [...icons.keys()].find((key) => key.includes(wmoCode));
-  if (!arr) return "NOT FOUND";
-  return icons.get(arr);
-}
-
-function formatDay(dateStr) {
-  return new Intl.DateTimeFormat("en", {
-    weekday: "short",
-  }).format(new Date(dateStr));
-}
+import { Link } from "react-router-dom";
 
 const convertToFlag = (countryCode) => {
   const codePoints = countryCode
@@ -57,13 +34,12 @@ class Header extends React.Component {
         `https://geocoding-api.open-meteo.com/v1/search?name=${this.state.location}`
       );
       const geoData = await geoRes.json();
-      console.log(geoData);
+      // console.log(geoData);
       if (!geoData.results) throw new Error("Location in not found!");
       const { latitude, longitude, timezone, name, country_code } =
         geoData.results.at(0);
 
       this.setState({ geoLocations: [...geoData.results] });
-      console.log(this.state.geoLocations);
 
       this.setState({
         displayLocation: `${name} ${convertToFlag(country_code)}`,
@@ -75,6 +51,8 @@ class Header extends React.Component {
       );
       const weatherData = await weatherRes.json();
       this.setState({ weather: weatherData.daily });
+      this.props.setWeather(weatherData.daily);
+      this.props.setLocation(this.state.location);
     } catch (error) {
       console.log(error);
     } finally {
@@ -112,7 +90,11 @@ class Header extends React.Component {
         {this.state.geoLocations.length !== 0 && (
           <div className="results">
             {this.state.geoLocations.map((currLoc) => (
-              <p>{currLoc.name}</p>
+              <p>
+                <Link className="link" to="weather-page">
+                  {currLoc.name}
+                </Link>
+              </p>
             ))}
           </div>
         )}
