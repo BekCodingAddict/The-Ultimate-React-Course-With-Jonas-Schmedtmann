@@ -1,6 +1,5 @@
 import React from "react";
 import { getWeatherCondition, getWeatherIcon } from "./WeatherPage";
-
 class Location extends React.Component {
   constructor(props) {
     super(props);
