@@ -166,6 +166,7 @@ progress {
   background-color: var(--color-accent);
   border: 2px solid var(--color-accent);
   color: var(--color-darkest);
+  color: #fff;
 }
 
 .answer {
