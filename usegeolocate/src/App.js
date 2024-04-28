@@ -39,6 +39,7 @@ function App() {
   function handleClicks() {
     setCountClicks((count) => count + 1);
     getPosition();
+    console.log(lat, lng);
   }
 
   return (
