@@ -1,0 +1,9 @@
+.nav {
+  background-color: orangered;
+}
+
+.nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
