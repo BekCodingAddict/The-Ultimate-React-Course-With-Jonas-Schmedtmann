@@ -1,0 +1,51 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: linear-gradient(to bottom, #d9afd9, #97d9e1);
+  min-height: 100vh;
+  min-width: 100vw;
+  flex-direction: column;
+  padding: 1rem 1rem;
+}
+
+.levelScore {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem 1rem;
+  width: 100%;
+}
+
+.level {
+  width: calc(50%-2rem);
+  font-size: 2rem;
+}
+
+.score {
+  width: calc(50%-2rem);
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 645px) {
+  .container h1 {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+  .level,
+  .score {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    min-height: 120vh;
+  }
+}

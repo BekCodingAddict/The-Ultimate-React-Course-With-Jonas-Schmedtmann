@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4rem;
+  min-height: 4rem;
+  background: white;
+  border-radius: 3px;
+}
+
+.container span {
+  font-size: 2rem;
+}
