@@ -36,30 +36,17 @@
       },
       "id": 98443197
     },
-
     {
-      "cityName": "Faro",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
-      "notes": "",
-      "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": 76116111
-    },
-    {
-      "cityName": "Barcelona",
-      "country": "Germany",
-      "emoji": "🇩🇪",
+      "cityName": "Namangan",
+      "country": "Uzbekistan",
+      "emoji": "🇩🇺🇿",
       "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
+      "notes": "Cool 😎",
       "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
+        "lat": 41.0058,
+        "lng": 71.6436
       },
-      "id": 933883930
+      "id": 19970803
     }
   ]
 }
