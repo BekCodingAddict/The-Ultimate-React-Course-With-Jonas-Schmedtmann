@@ -10,7 +10,7 @@
         "lat": 38.727881642324164,
         "lng": -9.140900099907554
       },
-      "id": 73930385
+      "id": "73930385"
     },
     {
       "cityName": "Madrid",
@@ -22,7 +22,7 @@
         "lat": 40.46635901755316,
         "lng": -3.7133789062500004
       },
-      "id": 17806751
+      "id": "17806751"
     },
     {
       "cityName": "Berlin",
@@ -34,7 +34,7 @@
         "lat": 52.53586782505711,
         "lng": 13.376933665713324
       },
-      "id": 98443197
+      "id": "98443197"
     },
     {
       "cityName": "Namangan",
@@ -46,7 +46,79 @@
         "lat": 41.0058,
         "lng": 71.6436
       },
-      "id": 19970803
+      "id": "19970803"
+    },
+    {
+      "id": "1873",
+      "cityName": "Slavyanka",
+      "country": "Russian Federation (the)",
+      "emoji": "🇷🇺",
+      "date": "2024-05-13T15:35:44.266Z",
+      "notes": "Test",
+      "position": {
+        "lat": "42.549031008362526",
+        "lng": "130.827202167234"
+      }
+    },
+    {
+      "id": "373d",
+      "cityName": "Azuara",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2024-05-13T15:40:12.045Z",
+      "notes": "",
+      "position": {
+        "lat": "41.244772343082076",
+        "lng": "-0.8349609375000001"
+      }
+    },
+    {
+      "id": "3410",
+      "cityName": "Satama-Sokoura",
+      "country": "Cote d'Ivoire",
+      "emoji": "🇨🇮",
+      "date": "2024-05-13T15:40:39.688Z",
+      "notes": "",
+      "position": {
+        "lat": "7.885147283424331",
+        "lng": "-4.394531250000001"
+      }
+    },
+    {
+      "id": "7fba",
+      "cityName": "Satama-Sokoura",
+      "country": "Cote d'Ivoire",
+      "emoji": "🇨🇮",
+      "date": "2024-05-13T15:40:39.688Z",
+      "notes": "",
+      "position": {
+        "lat": "7.885147283424331",
+        "lng": "-4.394531250000001"
+      }
+    },
+    {
+      "id": "9a60",
+      "cityName": "Satama-Sokoura",
+      "country": "Cote d'Ivoire",
+      "emoji": "🇨🇮",
+      "date": "2024-05-13T15:40:39.688Z",
+      "notes": "",
+      "position": {
+        "lat": "7.885147283424331",
+        "lng": "-4.394531250000001"
+      }
+    },
+    {
+      "id": "53d8",
+      "cityName": "Qibray",
+      "country": "Uzbekistan",
+      "emoji": "🇺🇿",
+      "date": "2024-05-13T15:46:07.562Z",
+      "notes": "Test",
+      "position": {
+        "lat": "41.35207214451295",
+        "lng": "69.46105957031251"
+      }
     }
   ]
 }
