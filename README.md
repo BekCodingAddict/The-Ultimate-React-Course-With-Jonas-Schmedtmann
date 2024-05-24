@@ -1,7 +1,7 @@
 # The Ultimate React Course 2024: React, Redux & More
 - [x] <h2>Master modern React from beginner to advanced! Context API, React Query, Redux Toolkit, Tailwind, advanced patterns</h2>
 
-- [x] <h2>What you'll learn</h2>
+- [x] <h2>What we'll learn</h2>
   - Become an advanced, confident, and modern React developer from scratch
   - Become job-ready by working with libraries and tools used in professional projects
   - Think like a senior React engineer with advanced design patterns
