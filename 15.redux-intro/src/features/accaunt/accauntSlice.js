@@ -47,6 +47,6 @@ export function requestLoan(amount, purpose) {
     payload: { amount, purpose },
   };
 }
-export function payload() {
+export function payLoan() {
   return { type: "accaunt/payLoan" };
 }
