@@ -4,10 +4,12 @@ import customerReducer from "./features/customers/customerSlice";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { configureStore } from "@reduxjs/toolkit";
 import { thunk } from "redux-thunk";
+
 const rootReducer = combineReducers({
   account: accauntReducer,
   customer: customerReducer,
 });
+
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
