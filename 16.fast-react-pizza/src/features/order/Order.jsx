@@ -1,7 +1,3 @@
-import { calcMinutesLeft } from "../../utils/helpers";
-import { formatCurrency } from "../../utils/helpers";
-import { formatDate } from "../../utils/helpers";
-
 // Test ID: IIDSAT
 
 import {
