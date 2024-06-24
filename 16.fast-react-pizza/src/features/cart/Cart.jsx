@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import LinkButton from "../../UI/LinkButton";
+import Button from "../../UI/Button";
 
 const fakeCart = [
   {
@@ -29,16 +31,17 @@ function Cart() {
 
   return (
     <div>
-      <Link
+      <LinkButton
         to="/menu"
         className="text-sm text-blue-500 hover:text-blue-600 hover:underline"
       >
         &larr; Back to menu
-      </Link>
+      </LinkButton>
 
       <h2>Your cart, %NAME%</h2>
 
       <div>
+        <Button to="/order/new">Order Pizzas</Button>
         <Link to="/order/new">Order pizzas</Link>
         <button>Clear cart</button>
       </div>
