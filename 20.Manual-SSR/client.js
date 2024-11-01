@@ -1,9 +1,3 @@
-const { readFileSync } = require("fs");
-const { createServer } = require("http");
-const { parse } = require("url");
-const { renderToString } = require("react-dom/server");
-const React = require("react");
-
 const pizzas = [
   {
     name: "Focaccia",
@@ -26,6 +20,8 @@ const pizzas = [
     price: 15,
   },
 ];
+
+ReactDOM.hydrateRoot(document.getElementById("root"), <Home />);
 
 function Home() {
   return (
@@ -63,24 +59,3 @@ function MenuItem({ pizza }) {
     </li>
   );
 }
-
-const htmlTemp = readFileSync(`${__dirname}/index.html`, "utf-8");
-const clientJs = readFileSync(`${__dirname}/client.js`, "utf-8");
-
-const server = createServer((req, res) => {
-  const pathName = parse(req.url, true).pathname;
-
-  if (pathName === "/") {
-    const renderedHome = renderToString(<Home />);
-    const html = htmlTemp.replace("%%%CONTENT%%%", renderedHome);
-    res.writeHead(200, { "Content-type": "text/html" });
-    res.end(html);
-  } else if (pathName === "/client.js") {
-    res.writeHead(200, { "Content-type": "application/javascript" });
-    res.end(clientJs);
-  } else {
-    res.end("Url not be found!");
-  }
-});
-
-server.listen(8000, () => console.log("Listening for request on posrt 8000"));
