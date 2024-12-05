@@ -4,7 +4,7 @@ import { getCabins } from "@/lib/data-service";
 // staticly generated (SSG)
 export async function getStaticProps() {
   const cabins = await getCabins();
-  return { props: { cabins } };
+  return { props: { cabins }, revalidate: 3600 };
 }
 
 function cabins({ cabins }) {
