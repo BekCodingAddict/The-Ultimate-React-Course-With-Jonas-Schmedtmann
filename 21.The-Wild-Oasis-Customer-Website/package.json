@@ -1,0 +1,31 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prod": "next build && next start"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.1.5",
+    "@supabase/supabase-js": "^2.46.1",
+    "date-fns": "^4.1.0",
+    "dotenv": "^16.4.5",
+    "next": "14.2.16",
+    "next-auth": "^5.0.0-beta.25",
+    "react": "^18",
+    "react-day-picker": "^8.10.1",
+    "react-dev-utils": "^10.0.0",
+    "react-dom": "^18",
+    "react-scripts": "^5.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.2.16",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
+  }
+}
